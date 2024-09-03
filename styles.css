@@ -1,0 +1,303 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #81e9d24b;
+}
+
+.header {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 50vh; /* Altura reduzida para a capa */
+}
+
+.header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: inherit;
+    opacity: 0.1; /* Maior nitidez */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 15vh;
+}
+
+h1 {
+    font-size: 36px;
+    color: #020202;
+}
+
+.subtitle {
+    font-size: 24px;
+    color: #06a086;
+    margin: 10px 0;
+}
+
+.description {
+    font-size: 18px;
+    color: #030a09;
+    margin-bottom: 20px;
+}
+
+.button {
+    font-size: 18px;
+    padding: 15px 30px;
+    background-color: #06a086;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.online {
+    font-size: 16px;
+    color: #4B4B4B;
+}
+
+.specialties {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8fffef5;
+    margin: 20px auto;
+    max-width: 1000px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgb(0, 0, 0);
+    animation: slideIn 1.5s ease-out;
+    overflow: hidden;
+}
+
+.specialty {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.specialty h2 {
+    font-size: 20px;
+    color: #4E342E;
+    margin-bottom: 10px;
+}
+
+.specialty-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Animação para a seção specialties */
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    text-align: left;
+    background-color: #f8fffef5;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-out;
+    overflow: hidden;
+}
+
+.about h2 {
+    font-size: 28px;
+    color: #4E342E;
+    margin-bottom: 15px;
+}
+
+.about-text {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-left: 20px; /* Espaçamento entre a imagem e o texto */
+}
+
+.about-img {
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Animação para a imagem da seção "Sobre" */
+.about-img:hover {
+    transform: scale(1.05);
+}
+
+/* Animação para a seção "Sobre" */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.benefits {
+    padding: 20px;
+    text-align: left;
+    background-color: #f8fffef5;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.benefits h2 {
+    font-size: 28px;
+    color: #4E342E;
+    margin-bottom: 15px;
+}
+
+.benefits-list {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.benefits-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.footer {
+    background-color: #06a086;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.footer-link {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Outras regras de estilo aqui */
+
+/* Especialidades com movimento de cartas */
+.specialty {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+    opacity: 0; /* Começa invisível */
+    transform: translateY(50px); /* Começa deslocada para baixo */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.specialties.in-view .specialty {
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Move para a posição correta */
+}
+
+.specialty:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.specialty:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.specialty:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.specialty:nth-child(4) {
+    transition-delay: 0.8s;
+}
+
+/* Ajuste na seção "Sobre" */
+.about {
+    margin-top: 100px; /* Desloca um pouco mais para baixo */
+    opacity: 0; /* Começa invisível */
+    transform: translateY(50px); /* Começa deslocada para baixo */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.about.in-view {
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Move para a posição correta */
+}
+
+/* Animações */
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Benefícios da Terapia Online */
+.benefits {
+    margin-top: 100px;
+}
+
+.benefits-list {
+    list-style-type: none;
+    padding: 0;
+    opacity: 0; /* Começa invisível */
+    transform: translateX(50px); /* Começa deslocada para a direita */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.benefits.in-view .benefits-list {
+    opacity: 1; /* Torna visível */
+    transform: translateX(0); /* Move para a posição correta */
+}
+
+.benefits-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* Depoimentos com efeito de zoom */
+.testimonial {
+    margin-top: 50px;
+    text-align: center;
+    opacity: 0; /* Começa invisível */
+    transform: scale(0.8); /* Começa com zoom reduzido */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.testimonial.in-view {
+    opacity: 1; /* Torna visível */
+    transform: scale(1); /* Aumenta para o tamanho original */
+}
