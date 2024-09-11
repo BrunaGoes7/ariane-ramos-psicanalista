@@ -1,33 +1,13 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const specialties = document.querySelector('.specialties');
-    const about = document.querySelector('.about');
-    const benefits = document.querySelector('.benefits');
-    const testimonial = document.querySelector('.testimonial');
+// JavaScript para animar as especialidades ao rolar
+window.addEventListener('scroll', function() {
+    const specialties = document.querySelectorAll('.specialty-card');
+    const triggerHeight = window.innerHeight * 0.85;
 
-    function checkScroll() {
-        const triggerBottom = window.innerHeight / 1.2;
+    specialties.forEach(specialty => {
+        const specialtyTop = specialty.getBoundingClientRect().top;
 
-        const specialtiesTop = specialties.getBoundingClientRect().top;
-        if (specialtiesTop < triggerBottom) {
-            specialties.classList.add('in-view');
+        if (specialtyTop < triggerHeight) {
+            specialty.classList.add('show');
         }
-
-        const aboutTop = about.getBoundingClientRect().top;
-        if (aboutTop < triggerBottom) {
-            about.classList.add('in-view');
-        }
-
-        const benefitsTop = benefits.getBoundingClientRect().top;
-        if (benefitsTop < triggerBottom) {
-            benefits.classList.add('in-view');
-        }
-
-        const testimonialTop = testimonial.getBoundingClientRect().top;
-        if (testimonialTop < triggerBottom) {
-            testimonial.classList.add('in-view');
-        }
-    }
-
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Verifica ao carregar a página
+    });
 });

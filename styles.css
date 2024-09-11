@@ -1,303 +1,435 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400&display=swap');
+
+/* Estilos Gerais */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Aplicando a fonte Roboto ao corpo do site */
     margin: 0;
     padding: 0;
-    background-color: #81e9d24b;
+    background: linear-gradient(135deg, #60b397f5, #96c09b48); /* Fundo em gradiente entre verde militar e verde claro */
+    color: #ffffff; /* Cor do texto em branco */
 }
 
+/* Cabeçalho */
 .header {
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    height: 50vh; /* Altura reduzida para a capa */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
 }
 
-.header-image {
-    width: 100%;
-    height: 100%;
-    object-fit: inherit;
-    opacity: 0.1; /* Maior nitidez */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+/* Logo */
+.logo img {
+    width: 80px; /* Tamanho adequado da logo */
 }
 
-.header-content {
-    position: relative;
-    z-index: 1;
-    padding-top: 15vh;
+/* Imagem da Dra. Ariane */
+.profile {
+    display: flex;
+    align-items:center;
 }
 
-h1 {
-    font-size: 36px;
-    color: #020202;
+.profile-img {
+    width: 120px; /* Tamanho menor da imagem da Dra. Ariane */
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 15px;
 }
 
-.subtitle {
+.profile-info h1 {
+    margin: 0;
     font-size: 24px;
-    color: #06a086;
-    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif; /* Fonte Montserrat para título */
+    color: #0a3318;
 }
 
-.description {
+.profile-info h2 {
+    margin: 5px 0;
     font-size: 18px;
-    color: #030a09;
+    color: #c0d8c3;
+}
+
+.profile-info p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #f8f8f8;
+}
+
+/* Botão de Agendar Consulta */
+.btn-agendar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c0d8c3; /* Verde claro */
+    color: #4b5d50; /* Verde militar */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-agendar:hover {
+    background-color: #ffffff;
+}
+
+/* Especialidades */
+.specialties {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Especialidades lado a lado */
+    gap: 20px;
+    padding: 50px;
+}
+
+.specialty-card {
+    background-color: rgba(46, 59, 50, 0.9); /* Verde mais escuro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.specialty-card h2 {
+    font-family: 'Montserrat', sans-serif; /* Fonte Montserrat para títulos das especialidades */
+    color: #c0d8c3; /* Verde claro */
+}
+
+.specialty-card p {
+    color: #f8f8f8;
+}
+
+.specialty-card:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Seção Sobre Ariane */
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: rgba(46, 59, 50, 0.9);
+    color: #ffffff;
+}
+
+.about-info {
+    width: 50%;
+}
+
+.about-img img {
+    width: 250px; /* Tamanho menor da imagem */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover img {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Faixa Central */
+.central-banner {
+    background-color: #c0d8c3; /* Verde claro */
+    color: #4b5d50; /* Verde militar */
+    text-align: center;
+    padding: 40px;
+    margin: 50px 0;
+}
+
+.central-banner h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+}
+
+.central-banner .btn-agendar {
+    margin-top: 20px;
+}
+
+/* Formulário de Contato */
+.contact-form {
+    background-color: rgba(46, 59, 50, 0.9);
+    padding: 50px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.contact-form form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #c0d8c3;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-enviar {
+    padding: 10px 20px;
+    background-color: #c0d8c3;
+    color: #4b5d50;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Depoimentos */
+.testimonial {
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #130f0f;
+    text-align: center;
+}
+
+.testimonial-text p {
     margin-bottom: 20px;
 }
 
-.button {
-    font-size: 18px;
-    padding: 15px 30px;
-    background-color: #06a086;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    display: inline-block;
+/* Ícones de Redes Sociais */
+.instagram-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .instagram-section img {
+    width: 40px;
+    height: 40px;
+    margin-right: 1px;
+  }
+  
+  .instagram-section span {
+    font-size: 20px;
+    color: #d6249f;
+  }
+  
+  .instagram-feed {
+    margin-top: 20px;
+  }
+  
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .specialties {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-info, .about-img {
+        width: 100%;
+    }
+
+    .profile {
+        flex-direction: column;
+    }
+
+    .profile-img {
+        margin-bottom: 10px;
+    }
 }
 
-.online {
-    font-size: 16px;
-    color: #4B4B4B;
+/* Estilos gerais para garantir a responsividade */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.specialties {
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header com a imagem de fundo */
+header {
+    background-image: url('sua-imagem.jpg'); /* Substitua 'sua-imagem.jpg' pelo caminho correto */
+    background-size: cover; /* Garante que a imagem cubra o espaço */
+    background-position: center; /* Centraliza a imagem */
+    height: 100vh; /* Define a altura como 100% da viewport */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    background-color: #f8fffef5;
-    margin: 20px auto;
-    max-width: 1000px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgb(0, 0, 0);
-    animation: slideIn 1.5s ease-out;
-    overflow: hidden;
 }
 
-.specialty {
-    flex: 1;
-    margin: 0 10px;
-    text-align: center;
-}
-
-.specialty h2 {
-    font-size: 20px;
-    color: #4E342E;
-    margin-bottom: 10px;
-}
-
-.specialty-text {
-    font-size: 14px;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Animação para a seção specialties */
-@keyframes slideIn {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.about {
+/* Estilos da seção do perfil com alinhamento centralizado */
+.profile {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
-    text-align: left;
-    background-color: #f8fffef5;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1.5s ease-out;
-    overflow: hidden;
+    text-align: center;
+    color: #000; /* Cor do texto */
 }
 
-.about h2 {
-    font-size: 28px;
-    color: #4E342E;
-    margin-bottom: 15px;
+/* Ajuste de margens para títulos e parágrafos */
+.profile h1, .profile h2, .profile p {
+    margin: 10px 0;
 }
 
-.about-text {
-    font-size: 18px;
-    color: #333;
-    line-height: 1.6;
-    margin-left: 20px; /* Espaçamento entre a imagem e o texto */
-}
-
-.about-img {
-    width: 30%;
+/* Ajustes na imagem para torná-la responsiva */
+img {
+    max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
 }
 
-/* Animação para a imagem da seção "Sobre" */
-.about-img:hover {
-    transform: scale(1.05);
-}
-
-/* Animação para a seção "Sobre" */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+/* Media Queries para melhorar o layout em telas menores */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 20px;
     }
-    to {
-        opacity: 1;
+
+    .profile h1 {
+        font-size: 24px;
+    }
+
+    .profile h2 {
+        font-size: 18px;
     }
 }
 
-.benefits {
-    padding: 20px;
-    text-align: left;
-    background-color: #f8fffef5;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.benefits h2 {
-    font-size: 28px;
-    color: #4E342E;
-    margin-bottom: 15px;
-}
-
-.benefits-list {
-    font-size: 18px;
-    color: #333;
+body {
+    font-family: Arial, sans-serif;
     line-height: 1.6;
 }
 
-.benefits-list {
-    list-style-type: disc;
-    padding-left: 20px;
+/* Container para centralizar e controlar a largura do header */
+.header-container {
+    width: 97%; /* Ajuste a largura da capa aqui (80% da tela) */
+    margin: 0 auto; /* Centraliza o container na página */
 }
 
-.footer {
-    background-color: #06a086;
+/* Header com a imagem de fundo e transparência */
+header {
+    background-image: url('logo.jpg'); /* Substitua pelo caminho correto da sua imagem */
+    background-size: cover; /* A imagem cobre a área do header */
+    background-position: center; /* Centraliza a imagem no header */
+    height: 60vh; /* Define a altura */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5); /* Cor de fundo com leve transparência */
+    background-blend-mode:darken; /* Modo de mesclagem para aplicar a transparência */
+    border-radius: 15px; /* Borda arredondada para a capa */
+    opacity: 0.9; /* Leve transparência para o header */
+}
+
+/* Ajustes para o conteúdo do header */
+header img {
+    width: 100%; /* A imagem ocupará toda a largura do header-container */
+    height: auto;
+}
+
+/* Estilos da seção do perfil com alinhamento centralizado */
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    color: #000; /* Cor do texto */
+}
+
+/* Ajuste de margens para títulos e parágrafos */
+.profile h1, .profile h2, .profile p {
+    margin: 10px 0;
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+    .header-container {
+        width: 100%; /* Para telas menores, a capa ocupa toda a largura */
+    }
+
+    header {
+        height: auto;
+        padding: 20px;
+    }
+
+    header img {
+        width: 100%; /* Para telas menores, a imagem ocupa toda a largura */
+    }
+
+    .profile h1 {
+        font-size: 24px;
+    }
+
+    .profile h2 {
+        font-size: 18px;
+    }
+}
+
+/* Container do header */
+header {
+    background-image: url('logo.jpg'); /* Substitua pelo caminho correto da imagem */
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    background-color: rgba(255, 255, 255, 0);
+    background-blend-mode: overlay;
+    border-radius: 15px;
+    opacity: 0.9;
     padding: 20px;
-    color: white;
+    flex-direction: column; /* Coloca os itens em coluna */
+    text-align: center; /* Centraliza o texto */
 }
 
-.footer-link {
-    font-size: 18px;
-    color: white;
-    text-decoration: none;
+/* Estilo da imagem menor ao lado esquerdo */
+header .profile-image {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px; /* Espaçamento abaixo da imagem */
 }
 
-/* Outras regras de estilo aqui */
-
-/* Especialidades com movimento de cartas */
-.specialty {
-    flex: 1;
-    margin: 0 10px;
-    text-align: center;
-    opacity: 0; /* Começa invisível */
-    transform: translateY(50px); /* Começa deslocada para baixo */
-    transition: transform 0.5s ease, opacity 0.5s ease;
+/* Estilos para o conteúdo */
+.header-content h1 {
+    font-size: 32px; /* Tamanho maior para o nome */
+    color: #333;
+    margin-bottom: 10px; /* Espaçamento entre o nome e o subtítulo */
 }
 
-.specialties.in-view .specialty {
-    opacity: 1; /* Torna visível */
-    transform: translateY(0); /* Move para a posição correta */
-}
-
-.specialty:nth-child(1) {
-    transition-delay: 0.2s;
-}
-
-.specialty:nth-child(2) {
-    transition-delay: 0.4s;
-}
-
-.specialty:nth-child(3) {
-    transition-delay: 0.6s;
-}
-
-.specialty:nth-child(4) {
-    transition-delay: 0.8s;
-}
-
-/* Ajuste na seção "Sobre" */
-.about {
-    margin-top: 100px; /* Desloca um pouco mais para baixo */
-    opacity: 0; /* Começa invisível */
-    transform: translateY(50px); /* Começa deslocada para baixo */
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.about.in-view {
-    opacity: 1; /* Torna visível */
-    transform: translateY(0); /* Move para a posição correta */
-}
-
-/* Animações */
-@keyframes slideIn {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Benefícios da Terapia Online */
-.benefits {
-    margin-top: 100px;
-}
-
-.benefits-list {
-    list-style-type: none;
-    padding: 0;
-    opacity: 0; /* Começa invisível */
-    transform: translateX(50px); /* Começa deslocada para a direita */
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.benefits.in-view .benefits-list {
-    opacity: 1; /* Torna visível */
-    transform: translateX(0); /* Move para a posição correta */
-}
-
-.benefits-list li {
+.header-content p {
+    font-size: 18px; /* Tamanho menor para os subtítulos */
+    color: #666;
     margin-bottom: 10px;
-    font-size: 18px;
-    transition: transform 0.3s ease;
 }
 
-/* Depoimentos com efeito de zoom */
-.testimonial {
-    margin-top: 50px;
-    text-align: center;
-    opacity: 0; /* Começa invisível */
-    transform: scale(0.8); /* Começa com zoom reduzido */
-    transition: transform 0.5s ease, opacity 0.5s ease;
+.header-content button {
+    background-color: #4CAF50; /* Cor do botão */
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.testimonial.in-view {
-    opacity: 1; /* Torna visível */
-    transform: scale(1); /* Aumenta para o tamanho original */
+.header-content button:hover {
+    background-color: #45a049; /* Efeito hover no botão */
 }
+
+

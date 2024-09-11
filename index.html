@@ -1,80 +1,479 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ariane Ramos - Psicanalista Clínica</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Psicanalista Ariane Ramos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f4f8;
+            color: #000000;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #bde0fe, #f0f4f8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: #333;
+            z-index: 2;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: #555;
+            margin-top: 20px;
+            z-index: 2;
+        }
+
+        header .btn-agendar {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        header .btn-agendar:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+        }
+
+        .tema-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            padding: 50px;
+            justify-items: center;
+        }
+
+        .tema {
+            width: 300px;
+            height: 300px;
+            background-color: #e0f7fa;
+            perspective: 1000px;
+            transition: transform 0.5s;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .tema:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .tema:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .tema:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .tema:nth-child(4) {
+            animation-delay: 1.2s;
+        }
+
+        .tema-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .tema:hover .tema-inner {
+            transform: rotateY(180deg);
+        }
+
+        .tema-front,
+        .tema-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 20px;
+        }
+
+        .tema-front {
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tema-back {
+            background-color: #bde0fe;
+            color: #333;
+            transform: rotateY(180deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .sobre-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: #f0f4f8;
+        }
+
+        .sobre-text h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .sobre-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .sobre-foto {
+            max-width: 350px;
+            width: 100%;
+            height: 350px;
+            background-color: #bde0fe;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sobre-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .formulario-container {
+            background-color: #f0f4f8;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .formulario {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .formulario h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .formulario input,
+        .formulario textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .formulario button {
+            width: 100%;
+            padding: 10px;
+            background-color: #bde0fe;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .formulario button:hover {
+            background-color: #a0c4ff;
+        }
+
+        /* Depoimentos */
+        .depoimento-container {
+            background-color: #f0f4f8;
+            padding: 50px;
+        }
+
+        .depoimento-container h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .depoimento {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .depoimento p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .depoimento span {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .tema-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-container {
+                flex-direction: column;
+            }
+
+            .depoimento {
+                font-size: 0.9rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #bde0fe;
+            color: #333;
+        }
+
+        .footer-contact {
+            margin-top: 20px;
+        }
+
+        .footer-contact a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <img src="logo.jpg" alt="Imagem de capa" class="header-image">
-        <div class="header-content">
-            <h1>Ariane Ramos</h1>
-            <p class="subtitle">Psicanalista Clínica</p>
-            <p class="description">Transforme sua vida entendendo e lidando melhor com seus sentimentos e pensamentos. Vamos juntos em busca do seu bem-estar emocional.</p>
-            <a href="https://api.whatsapp.com/send?phone=5511999999999&text=Olá, gostaria de agendar uma consulta." class="button">AGENDAR CONSULTA</a>
-            <p class="online">Atendimento Online</p>
+    <header>
+        <div>
+            <h1>Ariane Ramos - Psicanalista</h1>
+            <p>Explorando o bem-estar emocional e mental através da psicanálise.</p>
+            <a href="https://wa.me/5511940381193" class="btn-agendar" target="_blank">Agende sua consulta</a>
         </div>
+        <svg></svg>
     </header>
 
-    <section class="specialties">
-        <div class="specialty">
-            <h2>Ansiedade</h2>
-            <p class="specialty-text">
-                Compreenda e gerencie os transtornos de ansiedade, recuperando sua paz interior.
-            </p>
+    <!-- Temas -->
+    <section class="tema-container">
+        <!-- Tema Ansiedade -->
+        <div class="tema">
+            <div class="tema-inner">
+                <div class="tema-front">
+                    <h3>Ansiedade</h3>
+                </div>
+                <div class="tema-back">
+                    <p>A ansiedade é um estado emocional que pode prejudicar a qualidade de vida. Através da psicanálise, é possível entender suas causas e aprender a lidar com ela de forma saudável.</p>
+                </div>
+            </div>
         </div>
-        <div class="specialty">
-            <h2>Burnout</h2>
-            <p class="specialty-text">
-                Supere o esgotamento emocional e restaure seu equilíbrio no ambiente de trabalho.
-            </p>
+
+        <!-- Tema Depressão -->
+        <div class="tema">
+            <div class="tema-inner">
+                <div class="tema-front">
+                    <h3>Depressão</h3>
+                </div>
+                <div class="tema-back">
+                    <p>A depressão é uma condição que afeta a mente e o corpo. O tratamento psicanalítico ajuda a descobrir as origens emocionais dessa condição, promovendo a recuperação.</p>
+                </div>
+            </div>
         </div>
-        <div class="specialty">
-            <h2>Relacionamentos</h2>
-            <p class="specialty-text">
-                Fortaleça suas relações interpessoais e construa laços mais saudáveis.
-            </p>
+
+        <!-- Tema Estresse -->
+        <div class="tema">
+            <div class="tema-inner">
+                <div class="tema-front">
+                    <h3>Estresse</h3>
+                </div>
+                <div class="tema-back">
+                    <p>O estresse excessivo pode gerar impactos negativos. A psicanálise ajuda a identificar gatilhos e a desenvolver estratégias para lidar com as pressões do dia a dia.</p>
+                </div>
+            </div>
         </div>
-        <div class="specialty">
-            <h2>Procrastinação</h2>
-            <p class="specialty-text">
-                Identifique e supere os obstáculos emocionais que levam à procrastinação.
-            </p>
+
+        <!-- Tema Autoestima -->
+        <div class="tema">
+            <div class="tema-inner">
+                <div class="tema-front">
+                    <h3>Autoestima</h3>
+                </div>
+                <div class="tema-back">
+                    <p>A autoestima desempenha um papel importante na saúde mental. A psicanálise trabalha para melhorar a percepção que temos de nós mesmos, promovendo autoconfiança.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="about">
-        <img src="capa1.jpg" alt="Foto de Ariane Ramos" class="about-img">
-        <div class="about-text">
+    <section class="sobre-container">
+        <div class="sobre-text">
             <h2>Sobre Ariane Ramos</h2>
-            <p>
-                Ariane Ramos é uma psicanalista clínica dedicada a ajudar seus pacientes a encontrarem equilíbrio emocional e mental. Com anos de experiência na área, ela utiliza uma abordagem humanizada e focada na individualidade de cada paciente, buscando sempre proporcionar um ambiente de acolhimento e respeito.
-            </p>
+            <p>Psicanalista com anos de experiência, Ariane Ramos dedica-se a ajudar indivíduos a superar desafios emocionais e a alcançar uma vida mais equilibrada e satisfatória. Com uma abordagem personalizada e empática, Ariane utiliza a psicanálise para oferecer suporte profundo e efetivo.</p>
+            <a href="https://wa.me/5511940381193" class="btn-agendar" target="_blank">Agende sua consulta</a>
+        </div>
+        <div class="sobre-foto">
+            <!-- Substitua 'URL_DA_SUA_FOTO' pela URL da foto de Ariane Ramos -->
+            <img src="capa1.jpg" alt="Ariane Ramos" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
         </div>
     </section>
 
-    <section class="benefits">
-        <h2>Benefícios da Terapia Online</h2>
-        <ul class="benefits-list">
-            <li>Eficácia comprovada em diversos estudos clínicos</li>
-            <li>Sigilo absoluto em todas as sessões</li>
-            <li>Flexibilidade de horários e atendimento no conforto da sua casa</li>
-            <li>Tratamentos personalizados de acordo com as necessidades de cada paciente</li>
-        </ul>
+    <section class="formulario-container">
+        <form class="formulario">
+            <h2>Entre em Contato</h2>
+            <input type="text" name="name" placeholder="Nome completo">
+            <input type="email" name="email" placeholder="Seu email">
+            <textarea name="message" placeholder="Sua mensagem"></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
     </section>
 
-    <section class="testimonial">
-        <h2>Depoimentos</h2>
-        <p>"A Ariane me ajudou a superar meus medos e ansiedades. Hoje, me sinto muito mais confiante e segura para enfrentar os desafios da vida."</p>
-        <p>- Cliente satisfeita</p>
+    <!-- Depoimentos -->
+    <section class="depoimento-container">
+        <h2>O que dizem os clientes</h2>
+        <div class="depoimento">
+            <p>"Ariane me ajudou a lidar com a ansiedade de uma maneira que eu nunca pensei ser possível."</p>
+            <span>- Matheus</span>
+        </div>
+        <div class="depoimento">
+            <p>"Sua abordagem compassiva realmente fez a diferença na minha vida."</p>
+            <span>- Ingrid</span>
+        </div>
+        <div class="depoimento">
+            <p>"Estou muito grato por todo o apoio e orientação que recebi."</p>
+            <span>- Nathalia</span>
+        </div>
+        <div class="depoimento">
+            <p>"O processo de autoconhecimento com a Ariane foi transformador."</p>
+            <span>- Daniel</span>
+        </div>
+        <div class="depoimento">
+            <p>"Recomendo muito seus serviços para quem busca equilíbrio emocional."</p>
+            <span>- Mariana</span>
+        </div>
     </section>
 
-    <footer class="footer">
-        <a href="https://api.whatsapp.com/send?phone=5511999999999&text=Olá, gostaria de mais informações." class="footer-link">ENTRE EM CONTATO</a>
+    <footer>
+        <p>&copy; 2024 Ariane Ramos - Todos os direitos reservados</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script>
+        const svg = d3.select('svg');
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const colors = ['#a0c4ff', '#bde0fe', '#f0f4f8', '#caffbf'];
+
+        const shapes = d3.range(15).map(() => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: Math.random() * 150 + 50,
+            color: colors[Math.floor(Math.random() * colors.length)]
+        }));
+
+        svg.selectAll('circle')
+            .data(shapes)
+            .enter()
+            .append('circle')
+            .attr('cx', d => d.x)
+            .attr('cy', d => d.y)
+            .attr('r', d => d.size / 2)
+            .attr('fill', d => d.color)
+            .attr('opacity', 0.6);
+
+        function animate() {
+            svg.selectAll('circle')
+                .transition()
+                .duration(3000)
+                .attr('cx', () => Math.random() * width)
+                .attr('cy', () => Math.random() * height)
+                .on('end', animate);
+        }
+
+        animate();
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contato:</p>
+        <div class="footer-contact">
+            <a href="mailto:fbrunadegoes@yahoo.com.br">Email</a>
+            <a href="https://wa.me/5511940381193" target="_blank">WhatsApp</a>
+            <a href="https://www.instagram.com/ariane.psicanalista/?igsh=MWxqMzhkeGp5ODltNw%3D%3D" target="_blank">Instagram</a>
+        </div>
+    </footer>
 </body>
 </html>
