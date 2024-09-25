@@ -77,15 +77,19 @@ body {
     grid-template-columns: repeat(3, 1fr); /* Especialidades lado a lado */
     gap: 20px;
     padding: 50px;
+    border-radius: 100px;
 }
 
 .specialty-card {
-    background-color: rgba(46, 59, 50, 0.9); /* Verde mais escuro */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: transform 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
 }
 
 .specialty-card h2 {
